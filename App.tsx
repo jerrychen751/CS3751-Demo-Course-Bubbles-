@@ -13,6 +13,7 @@ const App: React.FC = () => {
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [plannedCourses, setPlannedCourses] = useState<PlannedCourse[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [resetKey, setResetKey] = useState(0); // Key to force re-render of Onboarding
 
   // Load Data from LocalStorage
   useEffect(() => {
@@ -76,6 +77,7 @@ const App: React.FC = () => {
       localStorage.removeItem(STORAGE_KEY_PLAN);
       setProfile(null);
       setPlannedCourses([]);
+      setResetKey(prev => prev + 1); // Force Onboarding to remount from scratch
       setView('ONBOARDING');
     }
   };
@@ -91,7 +93,10 @@ const App: React.FC = () => {
   return (
     <div className="antialiased text-slate-200 selection:bg-blue-500/30">
       {view === 'ONBOARDING' && (
-        <Onboarding onComplete={handleOnboardingComplete} />
+        <Onboarding 
+          key={resetKey} // This ensures the component state (step 1) is fresh
+          onComplete={handleOnboardingComplete} 
+        />
       )}
 
       {view === 'DASHBOARD' && profile && (

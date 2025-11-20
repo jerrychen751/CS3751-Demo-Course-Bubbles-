@@ -53,7 +53,7 @@ const Dashboard: React.FC<DashboardProps> = ({ profile, onNavigate, onReset }) =
       {/* Reset Button */}
       <button 
         onClick={onReset}
-        className="absolute top-6 right-6 flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-red-500/20 text-slate-400 hover:text-red-300 border border-white/10 transition-all z-50"
+        className="absolute top-6 right-6 flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-red-500/20 text-slate-400 hover:text-red-300 border border-white/10 transition-all z-50 cursor-pointer shadow-lg hover:shadow-red-500/10"
       >
         <LogOut size={16} />
         <span className="text-sm font-medium">Start Over</span>
