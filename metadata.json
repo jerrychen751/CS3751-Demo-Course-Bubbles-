@@ -1,0 +1,5 @@
+{
+  "name": "Course Bubbles",
+  "description": "An interactive, visual course planning application for university students featuring a drag-and-drop interface and prerequisite visualization.",
+  "requestFramePermissions": []
+}
